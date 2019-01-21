@@ -1,0 +1,3 @@
+minikube start --vm-driver="hyperv" --memory=2048 --cpus=4 --hyperv-virtual-switch="primary-virtual-switch" --v=7 --alsologtostderr --bootstrapper=kubeadm --extra-config=apiserver.authorization-mode=RBAC --extra-config=kubelet.authentication-token-webhook=true  --extra-config=kubelet.authorization-mode=Webhook 
+
+ <!-- --extra-config=scheduler.address=0.0.0.0 --extra-config=controller-manager.address=0.0.0.0 -->
