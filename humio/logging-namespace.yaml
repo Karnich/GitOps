@@ -1,7 +1,7 @@
-kind: "Namespace"
-apiVersion: "v1"
+kind: Namespace
+apiVersion: v1
 metadata: 
-  name: "logging"
+  name: logging
   labels: 
-    name: "logging"
+    name: logging
       
