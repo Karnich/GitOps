@@ -1,3 +1,13 @@
-minikube start --vm-driver="hyperv" --memory=2048 --cpus=4 --hyperv-virtual-switch="primary-virtual-switch" --v=7 --alsologtostderr --bootstrapper=kubeadm --extra-config=apiserver.authorization-mode=RBAC --extra-config=kubelet.authentication-token-webhook=true  --extra-config=kubelet.authorization-mode=Webhook 
+kubectl --namespace monitoring port-forward svc/prometheus-k8s 9090
 
- <!-- --extra-config=scheduler.address=0.0.0.0 --extra-config=controller-manager.address=0.0.0.0 -->
+kubectl --namespace monitoring port-forward svc/grafana 3000
+
+kubectl --namespace monitoring port-forward svc/alertmanager-main 9093
+
+
+
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
+
+dsahboard:
+kubectl proxy
+http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
